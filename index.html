@@ -28,6 +28,18 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 16px;
+            height: auto;
+            /* Убираем фиксированную высоту */
+            min-height: 35px;
+            /* Устанавливаем минимальную высоту */
+            width: 100%;
+            overflow-y: auto;
+            /* Добавляем полосы прокрутки, если нужно */
+        }
+
+        output {
+            min-width: 100%;
         }
 
         button {
@@ -36,7 +48,8 @@
             color: white;
             border: none;
             border-radius: 4px;
-            cursor: pointer;
+            cursor:
+                pointer;
         }
 
         .error {
@@ -49,10 +62,11 @@
 
     <h1>Time Difference Calculator</h1>
     <form id="timeForm">
-        <label for="timeRanges">Введите диапазоны времени (формат HH:MM-HH:MM+HH:MM-HH:MM...):</label>
-        <input type="text" id="timeRanges" name="timeRanges" required>
-        <button type="submit">Рассчитать</button>
-        <output id="result"></output>
+        <label for="timeInput">Введите диапазоны времени:</label>
+        <input type="text" id="timeInput" name="timeInput"
+            placeholder="HH:MM-HH:MM+HH:MM-HH:MM..." required>
+        <label for="timeResult">Вывод (щелкните чтобы скопировать):</label>
+        <output id="timeResult"></output>
     </form>
 
     <script src="script.js"></script>

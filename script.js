@@ -34,27 +34,22 @@ function calculateTimeDifference(timeRanges) {
     return totalDifferenceHours;
 }
 
-const timeForm = document.getElementById('timeForm');
-const timeRangesInput = document.getElementById('timeRanges');
-const resultOutput = document.getElementById('result');
+const timeRangesInput = document.getElementById('timeInput');
+const resultOutput = document.getElementById('timeResult');
 
-timeForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    processTimeRanges();
-});
-
-timeRangesInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Предотвращаем стандартное поведение Enter
-        processTimeRanges();
-    }
-});
-
-function processTimeRanges() {
+timeRangesInput.addEventListener('input', () => {
     const timeRanges = timeRangesInput.value;
-    const result = calculateTimeDifference(timeRanges);
+    updateResult(timeRanges);
+});
 
+function updateResult(timeRanges) {
     resultOutput.innerHTML = ''; // Очищаем предыдущий результат
+
+    if (timeRanges.trim() === "") { //Проверка на пустое поле
+        return;
+    }
+
+    const result = calculateTimeDifference(timeRanges);
 
     if (typeof result === 'object' && result.error) {
         const errorElement = document.createElement('span');
@@ -62,6 +57,19 @@ function processTimeRanges() {
         errorElement.textContent = result.error;
         resultOutput.appendChild(errorElement);
     } else {
-        resultOutput.textContent = result + " часа";
+        const resultSpan = document.createElement('span');
+        resultSpan.textContent = result;
+        resultSpan.addEventListener('click', () => {
+            navigator.clipboard.writeText(result.toString());
+            resultSpan.textContent = result + " ✅"; // Показывает, что скопировано
+            setTimeout(() => {
+                resultSpan.textContent = result;
+            }, 2000); // Сбрасывает через 2 секунды
+        });
+        resultOutput.appendChild(resultSpan);
     }
 }
+
+// Примеры использования
+// 09:05-11:26+16:30-20:11 // 6.03
+// 14:21-21:30+08:00-12:00 // 15.15
