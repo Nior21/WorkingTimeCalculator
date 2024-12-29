@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Time Difference Calculator</title>
+    <title>Working Time Calculator</title>
     <style>
         body {
             font-family: sans-serif;
@@ -57,11 +57,11 @@
 
 <body>
 
-    <h1>Time Difference Calculator</h1>
+    <h1>Working Time Calculator</h1>
     <form id="timeForm">
         <label for="timeInput">Введите диапазоны времени:</label>
         <input type="text" id="timeInput" name="timeInput"
-            placeholder="HH:MM-HH:MM+HH:MM-HH:MM..." required>
+            placeholder="HH:MM-HH:MM+HH:MM-HH:MM..." pattern="([0-9]{2}:[0-9]{2}-[0-9]{2}:[0-9]{2}){*}" required>
         <label for="timeResult">Вывод (щелкните чтобы скопировать):</label>
         <output id="timeResult"></output>
     </form>

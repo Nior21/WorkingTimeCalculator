@@ -41,6 +41,12 @@ timeRangesInput.addEventListener('input', () => {
     updateResult(timeRanges);
 });
 
+timeRangesInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+    }
+});
+
 function updateResult(timeRanges) {
     resultOutput.innerHTML = '';
 
