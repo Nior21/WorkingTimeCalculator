@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time Difference Calculator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 50px auto;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input,
+        output {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Time Difference Calculator</h1>
+    <form id="timeForm">
+        <label for="timeRanges">Введите диапазоны времени (формат HH:MM-HH:MM+HH:MM-HH:MM...):</label>
+        <input type="text" id="timeRanges" name="timeRanges" required>
+        <button type="submit">Рассчитать</button>
+        <output id="result"></output>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

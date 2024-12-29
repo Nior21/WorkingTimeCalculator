@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Time Difference Calculator",
+    "version": "1.0",
+    "description": "Calculates time differences",
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "storage" //Если вы планируете хранить какие-либо данные
+    ]
+}
