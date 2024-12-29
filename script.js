@@ -1,11 +1,10 @@
 function calculateTimeDifference(timeRanges) {
-    // Разбиваем строку на отдельные диапазоны, используя "+" в качестве разделителя
     const timeRangesArray = timeRanges.split('+');
 
 
     let totalDifferenceMs = 0;
     for (const timeRange of timeRangesArray) {
-        const trimmedTimeRange = timeRange.trim(); //Удаляем лишние пробелы
+        const trimmedTimeRange = timeRange.trim();
 
         const timeRegex = /^([0-1]\d|2[0-3]):([0-5]\d)-([0-1]\d|2[0-3]):([0-5]\d)$/;
         if (!timeRegex.test(trimmedTimeRange)) {
@@ -43,9 +42,9 @@ timeRangesInput.addEventListener('input', () => {
 });
 
 function updateResult(timeRanges) {
-    resultOutput.innerHTML = ''; // Очищаем предыдущий результат
+    resultOutput.innerHTML = '';
 
-    if (timeRanges.trim() === "") { //Проверка на пустое поле
+    if (timeRanges.trim() === "") {
         return;
     }
 
@@ -61,15 +60,15 @@ function updateResult(timeRanges) {
         resultSpan.textContent = result;
         resultSpan.addEventListener('click', () => {
             navigator.clipboard.writeText(result.toString());
-            resultSpan.textContent = result + " ✅"; // Показывает, что скопировано
+            resultSpan.textContent = result + " ✅";
             setTimeout(() => {
                 resultSpan.textContent = result;
-            }, 2000); // Сбрасывает через 2 секунды
+            }, 2000);
         });
         resultOutput.appendChild(resultSpan);
     }
 }
 
 // Примеры использования
-// 09:05-11:26+16:30-20:11 // 6.03
+// 09:05-11:26 // 2.35
 // 14:21-21:30+08:00-12:00 // 15.15

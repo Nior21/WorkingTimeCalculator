@@ -8,6 +8,6 @@
         "default_icon": "icon.png"
     },
     "permissions": [
-        "storage" //Если вы планируете хранить какие-либо данные
+        "storage"
     ]
 }
